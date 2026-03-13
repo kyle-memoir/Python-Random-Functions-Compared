@@ -1,4 +1,4 @@
-# Python-Random-Functions-Compared
+# Python Random Functions Compared
 Four Python random generation functions compared (one-bit result)
 
 In the course of doing some other work, I had occasion to compare four methods of 
