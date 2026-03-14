@@ -9,13 +9,10 @@ best results (n = 1000000 is a reasonable minimum starting point).
 
 Times will vary stochastically as system load varies.
 
-Set n = 1 to expose interpreter overhead for each method.
+Series A (n = 1) exposes interpreter overhead for each method.
+Series B (n = 1,000,000) exposes function speed.
 
-The results 'bit' is a sample generated in the print statement after 
-measurement.
-
-Python's random module (test item 1) optimizes nicely with Numba; the
-os.urandom-based functions (2-4) are not supported by Numba.
+The results 'bit' is a sample generated after measurement.
 
 """
 
