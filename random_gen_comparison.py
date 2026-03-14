@@ -25,10 +25,13 @@ import time
 import os
 
 
-# Set sample size (no commas)
-n = 1000000
+print("\n\n      Python Random Number Generators")
 
-print(f"\nRandom Generator Comparison (n = {n:,})\
+# A. Sample size 1 (interpreter overhead)
+
+n = 1
+
+print(f"\nSeries A - RNG Load Speed (n = {n:,})\
 \n\n     t/iteration (μs)  bit   source")
 
 # 1. random.randint - pseudorandom (Mersenne twister/software seeded)
@@ -36,33 +39,95 @@ print(f"\nRandom Generator Comparison (n = {n:,})\
 start_rnd = time.time()
 for _ in range(n):
     random.randint(0, 1)
+t = time.time()
+run_time = (t - start_rnd)
 # microseconds (μs) per call
-print(f"\n1.  {((time.time() - start_rnd) / n * 1000000):.15f}s ({random.randint(0, 1)}) random.randint")
+print(f"1.  {run_time / n * 1000000:.15f} ({random.randint(0, 1)}) random.randint")
 
 
 # 2. os.urandom - strong (hardware-dependent entropy source)
 #    see: https://docs.python.org/3/library/os.html
 start_osu = time.time()
 for _ in range(n):
-    (os.urandom(1))[0] & 1
+    os.urandom(1)  #[0] & 1
+t = time.time()
+run_time = (t - start_osu)
 # microseconds (μs) per call
-print(f"2.  {((time.time() - start_osu) / n * 1000000):.15f}s ({(os.urandom(1))[0] & 1}) os.urandom")
+print(f"2.  {run_time / n * 1000000:.15f} ({(os.urandom(1))[0] & 1}) os.urandom")
 
 
-# 3. random.SystemRandom - strong (function built on os.urandom)
+# 3. random.SystemRandom - strong (function built on os.random)
 #    see: https://docs.python.org/3/library/random.html#random.SystemRandom
 start_rsr = time.time()
 sec_gen = random.SystemRandom()
 for _ in range(n):
     sec_gen.randint(0, 1)
+t = time.time()
+run_time = (t - start_rsr)
 # microseconds (μs) per call
-print(f"3.  {((time.time() - start_rsr) / n * 1000000):.15f}s ({sec_gen.randint(0, 1)}) random.SystemRandom (os.urandom)")
+print(f"3.  {run_time / n * 1000000:.15f} ({sec_gen.randint(0, 1)}) random.SystemRandom")
 
 
-# 4. secrets.randbits - strong (function built on os.urandom)
+# 4. secrets.randbits - strong (function built on os.random)
 #    see: https://docs.python.org/3/library/secrets.html
 start_sec = time.time()
 for _ in range(n):
     secrets.randbits(1)
+t = time.time()
+run_time = (t - start_sec)
 # microseconds (μs) per call
-print(f"4.  {((time.time() - start_sec) / n * 1000000):.15f}s ({secrets.randbits(1)}) secrets.rndbits (os.urandom)\n")
+print(f"4.  {run_time / n * 1000000:.15f} ({secrets.randbits(1)}) secrets.randbits")
+
+
+
+# A. Sample size 1,000,000 (function speed)
+
+n = 1000000
+
+print(f"\nSeries B - RNG Function Speed (n = {n:,})\
+\n\n     t/iteration (μs)  bit   source")
+
+# 1. random.randint - pseudorandom (Mersenne twister/software seeded)
+#    see: https://docs.python.org/3/library/random.html#module-random
+start_rnd = time.time()
+for _ in range(n):
+    random.randint(0, 1)
+t = time.time()
+run_time = (t - start_rnd)
+# microseconds (μs) per call
+print(f"1.  {run_time / n * 1000000:.15f} ({random.randint(0, 1)}) random.randint")
+
+
+# 2. os.urandom - strong (hardware-dependent entropy source)
+#    see: https://docs.python.org/3/library/os.html
+start_osu = time.time()
+for _ in range(n):
+    os.urandom(1)  #[0] & 1
+t = time.time()
+run_time = (t - start_osu)
+# microseconds (μs) per call
+print(f"2.  {run_time / n * 1000000:.15f} ({(os.urandom(1))[0] & 1}) os.urandom")
+
+
+# 3. random.SystemRandom - strong (function built on os.random)
+#    see: https://docs.python.org/3/library/random.html#random.SystemRandom
+start_rsr = time.time()
+sec_gen = random.SystemRandom()
+for _ in range(n):
+    sec_gen.randint(0, 1)
+t = time.time()
+run_time = (t - start_rsr)
+# microseconds (μs) per call
+print(f"3.  {run_time / n * 1000000:.15f} ({sec_gen.randint(0, 1)}) random.SystemRandom")
+
+
+# 4. secrets.randbits - strong (function built on os.random)
+#    see: https://docs.python.org/3/library/secrets.html
+start_sec = time.time()
+for _ in range(n):
+    secrets.randbits(1)
+t = time.time()
+run_time = (t - start_sec)
+# microseconds (μs) per call
+print(f"4.  {run_time / n * 1000000:.15f} ({secrets.randbits(1)}) secrets.randbits\
+    \n\n                --- end ---\n")
