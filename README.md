@@ -8,5 +8,8 @@ the Python documentation).
 
 The code is self-explanatory.
 
-Also... the author? Brand new to Python and github -- still tons to learn -- be 
-kind.
+On the development platform, Python's random module (test item 1) was fastest on 
+large sample sizes and optimized nicely with Numba (70-90% speed boost); the more 
+secure os.urandom-based functions (2-4) are not Numba-supported.
+
+Brand new to Python and github -- still tons to learn -- be kind.
