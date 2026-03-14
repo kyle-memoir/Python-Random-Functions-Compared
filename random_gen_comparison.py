@@ -14,6 +14,9 @@ Set n = 1 to expose interpreter overhead for each method.
 The results 'bit' is a sample generated in the print statement after 
 measurement.
 
+Python's random module (test item 1) optimizes nicely with Numba; the
+os.urandom-based functions (2-4) are not supported by Numba.
+
 """
 
 import random
@@ -46,7 +49,7 @@ for _ in range(n):
 print(f"2.  {((time.time() - start_osu) / n * 1000000):.15f}s ({(os.urandom(1))[0] & 1}) os.urandom")
 
 
-# 3. random.SystemRandom - strong (function built on os.random)
+# 3. random.SystemRandom - strong (function built on os.urandom)
 #    see: https://docs.python.org/3/library/random.html#random.SystemRandom
 start_rsr = time.time()
 sec_gen = random.SystemRandom()
@@ -56,7 +59,7 @@ for _ in range(n):
 print(f"3.  {((time.time() - start_rsr) / n * 1000000):.15f}s ({sec_gen.randint(0, 1)}) random.SystemRandom (os.urandom)")
 
 
-# 4. secrets.randbits - strong (function built on os.random)
+# 4. secrets.randbits - strong (function built on os.urandom)
 #    see: https://docs.python.org/3/library/secrets.html
 start_sec = time.time()
 for _ in range(n):
