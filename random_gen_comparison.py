@@ -39,7 +39,7 @@ for _ in range(n):
 t = time.time()
 run_time = (t - start_rnd)
 # microseconds (μs) per call
-print(f"1.  {run_time / n * 1000000:.15f} ({random.randint(0, 1)}) random.randint")
+print(f"1(a).  {run_time / n * 1000000:.15f} ({random.randint(0, 1)}) random.randint")
 
 # 1(b). random.randrange - pseudorandom (Mersenne twister/software seeded)
 #    see: https://docs.python.org/3/library/random.html#module-random
@@ -49,7 +49,7 @@ for _ in range(n):
 t = time.time()
 run_time = (t - start_rnd)
 # microseconds (μs) per call
-print(f"1.  {run_time / n * 1000000:.15f} ({random.randrange(0, 1)}) random.randrange")
+print(f"1(b).  {run_time / n * 1000000:.15f} ({random.randrange(0, 1)}) random.randrange")
 
 
 # 2. os.urandom - strong (hardware-dependent entropy source)
@@ -102,7 +102,7 @@ for _ in range(n):
 t = time.time()
 run_time = (t - start_rnd)
 # microseconds (μs) per call
-print(f"1.  {run_time / n * 1000000:.15f} ({random.randint(0, 1)}) random.randint")
+print(f"1(a).  {run_time / n * 1000000:.15f} ({random.randint(0, 1)}) random.randint")
 
 # 1(b). random.randrange - pseudorandom (Mersenne twister/software seeded)
 #    see: https://docs.python.org/3/library/random.html#module-random
@@ -112,7 +112,7 @@ for _ in range(n):
 t = time.time()
 run_time = (t - start_rnd)
 # microseconds (μs) per call
-print(f"1.  {run_time / n * 1000000:.15f} ({random.randrange(0, 1)}) random.randrange")
+print(f"1(b).  {run_time / n * 1000000:.15f} ({random.randrange(0, 1)}) random.randrange")
 
 
 # 2. os.urandom - strong (hardware-dependent entropy source)
