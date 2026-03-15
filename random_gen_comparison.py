@@ -26,9 +26,9 @@ print("\n\n      Python Random Number Generators")
 
 # A. Sample size 1 (interpreter overhead)
 
-n = 1
+n = 1  # don't change this; edit Series B for other sample sizes
 
-print(f"\nSeries A - RNG Load Speed (n = {n:,})\
+print("\nSeries A - RNG Load Speed (n = 1)\
 \n\n     t/iteration (μs)  bit   source")
 
 # 1. random.randint - pseudorandom (Mersenne twister/software seeded)
