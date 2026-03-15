@@ -12,4 +12,7 @@ On the development platform, Python's random module (test item 1) was fastest on
 large sample sizes and optimized nicely with Numba (70-90% speed boost); the more 
 secure os.urandom-based functions (2-4) are not Numba-supported.
 
+Test items 1(a) and 1(b) illustrate there can be meaningful performance differences
+using differing methods of the same function to generate the same desired outcome.
+
 Brand new to Python and github -- still tons to learn -- be kind.
