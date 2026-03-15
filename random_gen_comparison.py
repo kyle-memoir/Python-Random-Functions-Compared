@@ -87,9 +87,9 @@ print(f"4.  {run_time / n * 1000000:.15f} ({secrets.randbits(1)}) secrets.randbi
 
 
 
-# B. Sample size 1,000,000 (function speed)
+# B. Sample size large (function speed)
 
-n = 1000000
+n = 1000000  # adjust sample size here as desired
 
 print(f"\nSeries B - RNG Function Speed (n = {n:,})\
 \n\n     t/iteration (μs)  bit   source")
