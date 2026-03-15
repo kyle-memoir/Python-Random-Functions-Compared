@@ -87,7 +87,7 @@ print(f"4.  {run_time / n * 1000000:.15f} ({secrets.randbits(1)}) secrets.randbi
 
 
 
-# A. Sample size 1,000,000 (function speed)
+# B. Sample size 1,000,000 (function speed)
 
 n = 1000000
 
