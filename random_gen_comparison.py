@@ -60,7 +60,7 @@ for _ in range(n):
 t = time.time()
 run_time = (t - start_osu)
 # microseconds (μs) per call
-print(f"2.  {run_time / n * 1000000:.15f} ({(os.urandom(1))[0] & 1}) os.urandom")
+print(f"2.     {run_time / n * 1000000:.15f} ({(os.urandom(1))[0] & 1}) os.urandom")
 
 
 # 3. random.SystemRandom - strong (function built on os.random)
@@ -72,7 +72,7 @@ for _ in range(n):
 t = time.time()
 run_time = (t - start_rsr)
 # microseconds (μs) per call
-print(f"3.  {run_time / n * 1000000:.15f} ({sec_gen.randint(0, 1)}) random.SystemRandom")
+print(f"3.     {run_time / n * 1000000:.15f} ({sec_gen.randint(0, 1)}) random.SystemRandom")
 
 
 # 4. secrets.randbits - strong (function built on os.random)
@@ -83,13 +83,13 @@ for _ in range(n):
 t = time.time()
 run_time = (t - start_sec)
 # microseconds (μs) per call
-print(f"4.  {run_time / n * 1000000:.15f} ({secrets.randbits(1)}) secrets.randbits")
+print(f"4.     {run_time / n * 1000000:.15f} ({secrets.randbits(1)}) secrets.randbits")
 
 
 
-# B. Sample size large (function speed)
+# B. Sample size 1,000,000 (function speed)
 
-n = 1000000  # adjust sample size here as desired
+n = 1000000
 
 print(f"\nSeries B - RNG Function Speed (n = {n:,})\
 \n\n     t/iteration (μs)  bit   source")
@@ -123,7 +123,7 @@ for _ in range(n):
 t = time.time()
 run_time = (t - start_osu)
 # microseconds (μs) per call
-print(f"2.  {run_time / n * 1000000:.15f} ({(os.urandom(1))[0] & 1}) os.urandom")
+print(f"2.     {run_time / n * 1000000:.15f} ({(os.urandom(1))[0] & 1}) os.urandom")
 
 
 # 3. random.SystemRandom - strong (function built on os.random)
@@ -135,7 +135,7 @@ for _ in range(n):
 t = time.time()
 run_time = (t - start_rsr)
 # microseconds (μs) per call
-print(f"3.  {run_time / n * 1000000:.15f} ({sec_gen.randint(0, 1)}) random.SystemRandom")
+print(f"3.     {run_time / n * 1000000:.15f} ({sec_gen.randint(0, 1)}) random.SystemRandom")
 
 
 # 4. secrets.randbits - strong (function built on os.random)
@@ -146,5 +146,5 @@ for _ in range(n):
 t = time.time()
 run_time = (t - start_sec)
 # microseconds (μs) per call
-print(f"4.  {run_time / n * 1000000:.15f} ({secrets.randbits(1)}) secrets.randbits\
+print(f"4.     {run_time / n * 1000000:.15f} ({secrets.randbits(1)}) secrets.randbits\
     \n\n                --- end ---\n")
