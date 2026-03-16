@@ -29,7 +29,7 @@ print("\n\n      Python Random Number Generators")
 n = 1  # don't change this; edit Series B for other sample sizes
 
 print("\nSeries A - RNG Load Speed (n = 1)\
-\n\n     t/iteration (μs)  bit   source")
+\n\n       t/iteration (μs)  bit   source")
 
 # 1. random.randint - pseudorandom (Mersenne twister/software seeded)
 #    see: https://docs.python.org/3/library/random.html#module-random
@@ -92,7 +92,7 @@ print(f"4.     {run_time / n * 1000000:.15f} ({secrets.randbits(1)}) secrets.ran
 n = 1000000
 
 print(f"\nSeries B - RNG Function Speed (n = {n:,})\
-\n\n     t/iteration (μs)  bit   source")
+\n\n       t/iteration (μs)  bit   source")
 
 # 1. random.randint - pseudorandom (Mersenne twister/software seeded)
 #    see: https://docs.python.org/3/library/random.html#module-random
