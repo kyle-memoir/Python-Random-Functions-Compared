@@ -1,4 +1,10 @@
 # Python Random Functions Compared
+
+Leaving this repo here as a placeholder; my other work has moved to:
+
+[codeberg](https://codeberg.org/kyle-memoir)
+
+
 Four Python random generation functions compared (one-bit result).
 
 In the course of doing some other work, I had occasion to compare four methods of 
