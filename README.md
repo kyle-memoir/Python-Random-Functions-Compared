@@ -2,7 +2,7 @@
 
 Leaving this repo here as a placeholder; my other work has moved to:
 
-[codeberg](https://codeberg.org/kyle-memoir)
+[codeberg](https://codeberg.org)
 
 
 Four Python random generation functions compared (one-bit result).
