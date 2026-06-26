@@ -9,10 +9,22 @@ Four Python random generation functions compared (one-bit result).
 
 In the course of doing some other work, I had occasion to compare four methods of 
 generating a random bit in Python from a performance perspective (no analysis
-here on the strength of the generators other than as noted in the comments as per
-the Python documentation).
+here on the strength of the generators other than as noted in the comments based
+on the Python documentation).
 
-The code is self-explanatory.
+The code is self-explanatory, as per the opening commments:
+
+    Elapsed time given in microseconds (μs).
+    
+    Time includes interpreter overhead; use a large sample size for 
+    best results (n = 1000000 is a reasonable minimum starting point). 
+    
+    Times will vary stochastically as system load varies.
+    
+    Series A (n = 1) exposes interpreter overhead for each method.
+    Series B (n = 1,000,000) exposes function speed.
+    
+    The results 'bit' is a sample generated after measurement.
 
 On the development platform, Python's 'random' module (test item 1) was fastest on 
 large sample sizes and optimized nicely with Numba (70-90% speed boost); the more 
