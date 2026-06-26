@@ -1,7 +1,9 @@
 # Random Generator Comparison - Python
 # source code by Kyle Memoir
 
-"""
+
+"""  A note on the code:
+
 Elapsed time given in microseconds (μs).
 
 Time includes interpreter overhead; use a large sample size for 
@@ -12,19 +14,20 @@ Times will vary stochastically as system load varies.
 Series A (n = 1) exposes interpreter overhead for each method.
 Series B (n = 1,000,000) exposes function speed.
 
-The results 'bit' is a sample generated after measurement.
+The results 'bit' is a sample generated after measurement.  """
 
-"""
 
 import random
 import secrets
 import time
 import os
 
-
 print("\n\n      Python Random Number Generators")
 
-# A. Sample size 1 (interpreter overhead)
+
+
+
+# Series A. Sample size 1 (interpreter overhead)
 
 n = 1  # don't change this; edit Series B for other sample sizes
 
@@ -87,7 +90,8 @@ print(f"4.     {run_time / n * 1000000:.15f} ({secrets.randbits(1)}) secrets.ran
 
 
 
-# B. Sample size 1,000,000 (function speed)
+
+# Series B. Sample size 1,000,000 (function speed)
 
 n = 1000000
 
